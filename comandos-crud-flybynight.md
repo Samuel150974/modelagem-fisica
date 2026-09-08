@@ -84,7 +84,7 @@ WHERE id = 2;
 
 ``` sql
 UPDATE produtos SET preco = 2999, quantidade = 5 WHERE id = 3;
-UPDATE produtos SET preco = 2999, quantidade = 5 WHERE nome = ;
+
 ```
 
 ## UPDATE na tabela lojas_produtos
@@ -96,4 +96,10 @@ UPDATE produtos SET preco = 2999, quantidade = 5 WHERE nome = ;
     -- AND -> E
     -- OR -> OU
     -- NOT -> NÃO 
+```
+
+## DELETE na tabela de produtos
+
+``` sql
+DELETE FROM produtos WHERE id = 2;
 ```
