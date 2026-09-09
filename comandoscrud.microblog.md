@@ -7,10 +7,9 @@ Bruno Souza, bruno@email.com, senha: abc456, tipo: admin
 Carla Mendes, carla@email.com, senha: 789xyz, tipo: editor
 
 ``` sql
-INSERT INTO usuarios(nome, email, senha,tipo); VALUES
+INSERT INTO usuarios(nome, email, senha,tipo_usuario); VALUES
 ('Ana Silva', 'ana@email.com', '123abc', 'editor'),
-('Bruno Souza','bruno@email.com','abc456','admin'),
-('Carla Mendes','carla@email.com','789xyz','editor');
+('Carla Mendes','carla@email.com','789xyz','admin');
 
 
 ```
@@ -35,5 +34,10 @@ INSERT INTO noticias (titulo, resumo, texto, imagem, destaque, id_usuario, id_ca
 INSERT INTO noticias (titulo, resumo, texto, imagem, destaque, id_usuario, id_categoria) VALUES ( 'Senac prepara novos títulos para 2027', 'Em 2027 diversos títulos com bolsas de estudos serão lançados','Um texto qualquer sobre esta noticia', 'cursos.png', 'sim', 1, 2 );
 
 ( 'Corinthians está mau pra caramba', 'O time caiu muito após a copa do mundo','Não sei mais o que escrever sobre isso tudo etc', 'corinthians.jpg', 'nao', 3, 3 );
+
+```
+
+```sql
+INSERT INTO noticias (titulo, resumo, texto, imagem, destaque, id_usuario, id_categoria) VALUES ( 'Concorrência para presidência em 2026 está grande', 'Em 2026 expira o cargo de candidatos da eleição passada','Um texto qualquer sobre esta noticia', 'eleição.png', 'sim', 2, 3 );
 
 ```

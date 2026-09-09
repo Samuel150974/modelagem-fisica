@@ -27,3 +27,19 @@ WHERE id = 1;
 UPDATE noticias SET id_categoria = '4'
 WHERE id = 1;
 ```
+
+```sql
+DELETE FROM noticias WHERE id = 2;
+
+```
+
+```sql
+DELETE FROM categorias WHERE id = 1;
+
+
+```
+
+```sql
+DELETE FROM usuarios WHERE id = 2;
+
+```
