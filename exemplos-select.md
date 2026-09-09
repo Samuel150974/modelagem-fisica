@@ -57,3 +57,37 @@ Normalmente se usa o operador `<>` em vez do `!=`;
 ```sql
 SELECT * FROM produtos WHERE fornecedor_id <> 1;
 ```
+
+## Combinando condições
+
+Usamos o `WHERE` e operadores lógicos e relacionais.
+
+## OPERADOR AND (E)
+
+Exibir os produtos que custem menos de 500 e quantidade acima de 20.
+
+```sql
+SELECT nome, preco, quantidade FROM produtos
+WHERE preco < 500 AND quantidade > 20;
+```
+
+### Operador OR (OU)
+
+Exibir os produtos que custem mais de 3000 ou com quantidade zerada.
+
+```sql
+SELECT nome, preco, quantidade FROM produtos
+WHERE preco > 3000 OR quantidade = 0;
+```
+
+### Operador NOT (NÃO)
+
+Exibir os produtos que **não possuem preço acima de 1000**
+
+```sql
+SELECT nome, preco FROM produtos WHERE NOT preco > 1000;
+```
+
+**OBS.:** o uso do `NOT` não é obrigatório, desde que você consiga o mesmo resultado usando uma lógica diferente, como no exemplo:
+
+`SELECT nome, preco FROM produtos WHERE preco <= 1000;`
