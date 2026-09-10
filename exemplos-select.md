@@ -1,11 +1,11 @@
 # SQL SELECT - Exemplos de consultas ao banco Fly By Night
 
-O comando `SELECT` é usado para **Consultar dados amrzenados nas tabelas do banco de dados**.
+O comando `SELECT` é usado para **Consultar dados armazenados nas tabelas do banco de dados**.
 
 ##SELECT básico
 
 consultar todos os dados de uma tabela:
-## SELECT báscico: consultar todos os dados de uma tabela:                                                         
+## SELECT básico: consultar todos os dados de uma tabela:                                                         
 ```sql
 SELECT * FROM produtos;
 ```
@@ -241,6 +241,66 @@ FROM produtos;
 
 ```
 
+**Atenção** não coloque espaço entre o nome da função e os parênteses!
+
+## Recursos de agrupamento
+
+`GROUP BY` reúne registros que possuem um determinado valor em comum.
+
+Exemplo: descobrir quantos produtos existem em cada fornecedor.
+
+## Contando produtos por fornecedor
+
 ```sql
+SELECT fornecedor_id, COUNT(*) AS total_produto
+FROM PRODUTOS GROUP BY fornecedor_id;
+```
+
+### Determinando a média de preços por fonrcedor
+
+```sql
+SELECT fornecedor_id, ROUND(AVG(preco), 2) AS preco_medio
+FROM produtos GROUP BY fornecedor_id;
 
 ```
+### HAVING
+
+`HAVING` permite filtrar os grupo scriados pelo `GROUP BY`
+
+**Obs:** para usar o HAVING **precisa ter** GROUP BY.
+
+Exemplo: mostrar somente os fornecedores que possuem pelo menos dois pordutos cadstrados.
+
+```sql
+SELECT fornecedor_id, COUNT(*) AS total_produtos
+FROM produtos GROUP BY fornecedor_id
+HAVING COUNT(*) >= 2;
+```
+
+## Combinado WHERE, GROUP BY, HAVING E ORDER BY
+
+O objetivo:
+
+1. Considera produtos com quantidade maior que zero
+2. Agrupa por fornecedor
+3. Calcula a quantidade e preço médio de cada grupo
+4. Mantém apenas fornecedores com pelo menos dois produtos
+5. Ordena os grupos pelo preço médio
+
+```sql
+SELECT 
+   fornecedor_id, 
+   COUNT(*) AS total_produtos, 
+   ROUND(AVG(preco), 2) AS preco_medio
+FROM produtos
+WHERE quantidade > 0 
+GROUP BY fornecedor_id
+HAVING total_produtos >=2
+ORDER BY preco_medio DESC;
+```
+
+**Obs:** ao combinar estes recursos, a ordem deve ser:
+
+1. WHERE
+2. GROUP BY/HAVING
+3. ORDER BY

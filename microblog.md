@@ -31,8 +31,8 @@ CREATE TABLE noticias(
             texto_completo TEXT NOT NULL,
             nome_imagem VARCHAR(100) NOT NULL,
             destaque ENUM('sim','nao') NOT NULL,
-            data_publicaca DATE_TIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            
+            data_publicacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            CREATE TABLE noticias (data_publicacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP);
             -- Nomeclatura recomendada
             -- nometabelasingular_nomecolunapk
            usuario _id INT NOT NULL,
