@@ -119,3 +119,58 @@ fornecedor_id = 1 OR
 fornecedor_id = 4 OR
 fornecedor_id = 8; 
 ```
+
+
+### LIKE
+ 
+`LIKE` é usado principalmente para realizar pesquisas em textos. Junto com o caractere `%` permite fazer buscas baseadas em partes de uma string.
+ 
+Exemplo: procurar produtos que tenham a palavra **Gamer** em qualquer posição do nome.
+ 
+```sql
+SELECT nome, preco FROM produtos
+WHERE nome LIKE '%Gamer%';
+```
+ 
+## DISTINCT
+ 
+Elimina valores repetidos do resultado da consulta.
+ 
+```sql
+SELECT DISTINCT fornecedor_id FROM produtos
+```
+ 
+## ORDENAÇÃO (ou CLASSIFICAÇÃO)
+ 
+Usamos o `ORDER BY` para organizar os registros do resultado.
+ 
+### Ordem crescente (padrão)
+ 
+Exemplos: do menor para o maior, ou de A-Z, de mais antigo para mais recente.
+ 
+```sql
+SELECT nome, preco FROM produtos
+ORDER BY preco ASC;
+-- nem precisa colocar o ASC, pois é padrão
+```
+ 
+### Ordem decrescente
+ 
+ Exemplos: do maior para o menor, ou de Z-A, ou do mais recente
+ para o mais antigo.
+
+ ```sql
+SELECT nome, preco FROM produtos
+ORDER BY preco DESC;
+ ```
+
+ ### Ordenando por mais de uma coluna
+
+ ```sql
+SELECT nome, preco FROM produtos
+ORDER BY preco DESC, nome ASC;
+ ```
+
+
+## Funções de agregação
+
