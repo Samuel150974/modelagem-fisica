@@ -331,7 +331,7 @@ SELECT
  fornecedores.nome AS fornecedor 
  FROM produtos
 
- -- Fazendo a junção (JOIN) enntre as tabelas
+ -- Fazendo a junção (JOIN) entre as tabelas
  -- Neste caso, produtos com fornecedores
 
 INNER JOIN fornecedores 
@@ -340,5 +340,69 @@ INNER JOIN fornecedores
 ON produtos.fornecedor_id = fornecedores.id; 
 ```
 
+### Apelidos (alias) para tabelas
+
+Podemos usar apelidos para tornar consultas maiores mais compactas.
+
+```sql
+SELECT
+
+     p.nome AS produto,
+     p.preco,
+     f.nome AS fornecedor
+FROM produtos AS p
+INNER JOIN fornecedores AS f
+   ON p.fornecedor_id = f.id;
+```
+
+ Neste exemplo:
+         - `p` representa a tabela `produtos`;
+         - `f` representa a tabela `fornecedores`;
 
 
+**Dica:** versão ainda mais compacta omitindo o `AS`:
+
+```sql
+SELECT
+
+     p.nome produto,
+     p.preco,
+     f.nome fornecedor
+FROM produtos p
+INNER JOIN fornecedores f
+   ON p.fornecedor_id = f.id;
+```
+
+
+## JOIN com filtro
+
+Exibir somente os produtos com preço superior a R$ 1000 mostrando também o nome de seus fornecedores
+
+```sql
+SELECT
+   produtos.nome AS produto,
+   produtos.preco,
+   fornecedores.nome
+FROM produtos INNER JOIN fornecedores
+     ON produtos.fornecedor_id = fornecedores.id
+     WHERE produtos.preco > 1000;   
+```
+### Desafio: JOIN envolvendo 3 tabelas
+
+Objetivo: descobrir qual produto é vendido em qual loja e qual é seu estoque naquela loja.
+
+
+```sql
+SELECT 
+    l.nome AS loja,
+    p.nome AS produto,
+    lp.estoque
+FROM lojas_produtos lp
+INNER JOIN lojas l ON lp.loja_id = l.id
+INNER JOIN produtos p ON lp.produto_id = p.id
+ORDER BY l.nome, p.nome;
+    
+```
+
+descubra qual produto é vendido em qual loja e qual é seu estoque naquela loja, usando JOIN E INNER JOIN
+          
