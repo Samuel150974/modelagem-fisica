@@ -304,3 +304,41 @@ ORDER BY preco_medio DESC;
 1. WHERE
 2. GROUP BY/HAVING
 3. ORDER BY
+
+---
+
+## JOIN
+
+Até agora consultamos principalmente dados existentes em **uma única tabela.**
+
+Porém, nosso banco possui informações relacionadas **entre várias tabelas.**
+
+Por exemplo:
+- `produtos` poussui `fornecedor_id`
+- `fornecedores` possui o nome dos fornecedores
+
+O `JOIN` permite **combinar informações de tabelas relacinadas** na consulta com `SELECT`.
+
+## INNER JOIN entre produtos e fornecedores
+
+Exibir nome dos fornecedores de cada produto:
+
+```sql
+SELECT
+   -- tabela.coluna AS apelido
+   -- especialmente para colunas com o mesmo nome
+ produtos.nome AS produto, produtos.preco, 
+ fornecedores.nome AS fornecedor 
+ FROM produtos
+
+ -- Fazendo a junção (JOIN) enntre as tabelas
+ -- Neste caso, produtos com fornecedores
+
+INNER JOIN fornecedores 
+
+-- Definindo a condição de CRUZAMENTO entre as tabelas 
+ON produtos.fornecedor_id = fornecedores.id; 
+```
+
+
+
