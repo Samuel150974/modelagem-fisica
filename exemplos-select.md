@@ -190,7 +190,7 @@ Entre as principais:
 Contando quantos registros existem na tabela produtos:
 
 ```sql
-SELECT COUNT (*) AS total FROM produtos;
+SELECT COUNT(*) AS total FROM produtos;
 ```
 
 ## SUM (somar)
